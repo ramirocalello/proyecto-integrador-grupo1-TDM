@@ -1,23 +1,19 @@
-import ElementoNav from "../ElementoNav/ElementoNav"
+import Elementosnav from "../Elementosnav/Elementosnav"
 
-let attrElementos = [{name:'ADMIN'}, {name:'Pages'}, {name:'Charts'}, {name:'Tables'}]
+let elemHeader = [{name:"home"}, {name:"login"}, {name:"crear"}, {name:"favoritos"}]
 
 function Header(props) {
     return (
         <nav>
-            <ul className="main-nav">
-                {attrElementos.map((e, idx) => (
-                <ElementoNav 
-                key={idx}
-                elemento = {e.name}
-                />
-            ))}
-            </ul>
-            <ul className="user">
-                <li>Nombre usuario <img src="./img/user.jpg" alt="" /></li>
-            </ul>
+            <ul class="nav nav-tabs my-4">
+            {elemHeader.map((e, idx) => 
+            <Elementosnav
+            key={idx}
+            elemento={e.name}
+            />)}
+        </ul>
         </nav>
-    )
+)
 }
 
 export default Header
