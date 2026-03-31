@@ -1,0 +1,25 @@
+/* Cards y Personajes */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.hidden-p {
+    display: none;
+}
+
+.visible-p {
+    display: block;
+}
+
+.boton-personajes {
+    background-color: rgb(160, 255, 188);
+    border: 0px;
+    border-radius: 10px 5px 10px 5px;
+    width: 25%;
+    height: 50px;
+    margin-left: 550px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

@@ -1,12 +1,13 @@
-import {Component} from React
+import {Component} from "react"
 
 class Crear extends Component{
     constructor(props){
         super(props)
         this.state = {
-            email: ""
-            password:""
+            email: "",
+            password:"",
             cookie: ""
+        }
         }
 
         evitarSubmit = (event)=>{
@@ -14,7 +15,7 @@ class Crear extends Component{
         }
 
         controlarCambios = (event) => {
-            this.setState({valor:event.target.value})
+            this.setState({[event.target.name]:event.target.value})
         }
 
         render(){
@@ -31,17 +32,8 @@ class Crear extends Component{
                     </form>
                 </div>
             )
-        }
+        
     }
 }
 
-
-
-        
-        
-        
-        
-        
-    
-
-Export default Crear
+export default Crear
