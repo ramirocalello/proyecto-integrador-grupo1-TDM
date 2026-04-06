@@ -21,7 +21,20 @@ class Header extends Component {
          />
 
 
-export default Header;
+         {this.state.condicionales.map((e, i) => (
+           <Elementosnav
+             key={i}
+             name={e.name}
+             path={e.path}
+           />
+         ))}
+       </ul>
+     </nav>
+   );
+ }
+}
 
+
+export default Header;
 
 
