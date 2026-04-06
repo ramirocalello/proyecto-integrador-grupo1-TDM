@@ -1,6 +1,5 @@
 import { Component } from "react";
-import Populares from "../Populares/Populares";
-import Cartelera from "../Cartelera/Cartelera";
+import Card from "../Card/Card.js";
 
 class Home extends Component {
     constructor(props) {
@@ -8,7 +7,6 @@ class Home extends Component {
         this.state = {
             cartelera: [],
             populares: [],
-            urlCartelera: 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_release_type=2&api_key=8c5941c39922b8ccee40a07dc13fb0fc'
         }
     }
     componentDidMount() {
@@ -42,7 +40,7 @@ class Home extends Component {
                    <h2 className="alert alert-primary">Peliculas Populares</h2>
                     <section className="row cards" id="movies">
                     {this.state.populares.map((e, idx) => (
-                        <Populares
+                        <Card
                         key={idx}
                         title={e.original_title}
                         desc={e.overview}
@@ -62,7 +60,7 @@ class Home extends Component {
                    <h2 className="alert alert-primary">Peliculas en cartelera</h2>
                     <section className="row cards" id="movies">
                     {this.state.cartelera.map((e, idx) => (
-                        <Cartelera
+                        <Card
                         key={idx}
                         title={e.original_title}
                         desc={e.overview}
