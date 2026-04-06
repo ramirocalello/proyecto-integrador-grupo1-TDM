@@ -1,7 +1,3 @@
-// Formulario de Busquedad
-
-
-// Contenido Principal de la Pagina
 import { Component } from "react";
 import Populares from "../Populares/Populares";
 import Cartelera from "../Cartelera/Cartelera";
@@ -12,12 +8,11 @@ class Home extends Component {
         this.state = {
             cartelera: [],
             populares: [],
-            urlPopulares: "https://api.themoviedb.org/3/movie/popular?api_key=8c5941c39922b8ccee40a07dc13fb0fc",
             urlCartelera: 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_release_type=2&api_key=8c5941c39922b8ccee40a07dc13fb0fc'
         }
     }
     componentDidMount() {
-        fetch(this.state.urlPopulares)
+        fetch("https://api.themoviedb.org/3/movie/popular?api_key=8c5941c39922b8ccee40a07dc13fb0fc")
             .then(response => response.json())
             .then(data => this.setState(
                 {
@@ -26,7 +21,7 @@ class Home extends Component {
             ))
             .catch((error) => console.log(error))
 
-            fetch(this.state.urlCartelera)
+            fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_release_type=2&api_key=8c5941c39922b8ccee40a07dc13fb0fc')
             .then(response => response.json())
             .then(data => this.setState(
                 {
@@ -44,7 +39,7 @@ class Home extends Component {
                     <p>Cargando...</p>
                 ) : (
                     <div>
-                   <h2 className="alert alert-primary">Popular movies this week</h2>
+                   <h2 className="alert alert-primary">Peliculas Populares</h2>
                     <section className="row cards" id="movies">
                     {this.state.populares.map((e, idx) => (
                         <Populares
@@ -64,7 +59,7 @@ class Home extends Component {
                     <p>Cargando...</p>
                 ) : (
                     <div>
-                   <h2 className="alert alert-primary">Current Movies</h2>
+                   <h2 className="alert alert-primary">Peliculas en cartelera</h2>
                     <section className="row cards" id="movies">
                     {this.state.cartelera.map((e, idx) => (
                         <Cartelera

@@ -1,38 +1,38 @@
-import {Component} from "react"
+import { Component } from "react"
 
-class Crear extends Component{
-    constructor(props){
+class Crear extends Component {
+    constructor(props) {
         super(props)
         this.state = {
             email: "",
-            password:"",
+            password: "",
             cookie: ""
         }
-        }
+    }
 
-        evitarSubmit = (event)=>{
-            event.preventDefault();
-        }
+    evitarSubmit = (event) => {
+        event.preventDefault();
+    }
 
-        controlarCambios = (event) => {
-            this.setState({[event.target.name]:event.target.value})
-        }
+    controlarCambios = (event) => {
+        this.setState({ [event.target.name]: event.target.value })
+    }
 
-        render(){
-            return(
-                <div>
-                    <h2>Registrarse</h2>
-                    <form onSubmit={(event)=> this.evitarSubmit(event)}>
-                        <label>Name or email:</label>
-                        <input type= "email" name="email" onChange={(event)=>this.controlarCambios(event)} value={this.state.email}></input>
-                        <label>Password:</label>
-                        <input type = "password" name = "password"  onChange={(event)=>this.controlarCambios(event)} value={this.state.password}></input>
-                        <input type = "submit" value = "Registrarse"></input>
+    render() {
+        return (
+            <div>
+                <h2>Registrarse</h2>
+                <form onSubmit={(event) => this.evitarSubmit(event)}>
+                    <label>Name or email:</label>
+                    <input type="email" name="email" onChange={(event) => this.controlarCambios(event)} value={this.state.email}></input>
+                    <label>Password:</label>
+                    <input type="password" name="password" onChange={(event) => this.controlarCambios(event)} value={this.state.password}></input>
+                    <input type="submit" value="Registrarse"></input>
 
-                    </form>
-                </div>
-            )
-        
+                </form>
+            </div>
+        )
+
     }
 }
 
