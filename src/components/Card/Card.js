@@ -1,7 +1,7 @@
 import { Component } from "react";
-import './Cartelera.css'
+import './Card.css'
 
-class Cartelera extends Component {
+class Card extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -36,4 +36,4 @@ class Cartelera extends Component {
         );
     };
 }
-export default Cartelera
+export default Card

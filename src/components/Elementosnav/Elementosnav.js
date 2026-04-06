@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Route, Swich } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Elementosnav(props) {
     return (

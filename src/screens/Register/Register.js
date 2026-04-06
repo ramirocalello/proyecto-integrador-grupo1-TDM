@@ -1,6 +1,6 @@
 import { Component } from "react"
 
-class Crear extends Component {
+class Register extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -36,4 +36,4 @@ class Crear extends Component {
     }
 }
 
-export default Crear
+export default Register
