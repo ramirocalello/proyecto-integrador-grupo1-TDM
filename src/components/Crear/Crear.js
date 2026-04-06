@@ -15,7 +15,7 @@ class Crear extends Component {
     }
 
     controlarCambios = (event) => {
-        this.setState({ [event.target.name]: event.target.value })
+        this.setState({valor: event.target.value })
     }
 
     render() {
