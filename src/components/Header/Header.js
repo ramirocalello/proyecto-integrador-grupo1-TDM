@@ -7,8 +7,7 @@ class Header extends Component {
  constructor(props) {
    super(props);
    this.state = {
-     permanente: [{ name: "Home", path: "/" }],
-     condicionales: [{ name: "Login", path: "/login" }, { name: "Crea tu cuenta", path: "/crear" }, { name: "Favoritos", path: "/favoritos" }],
+     permanente: [{ name: "Home", path: "/" }, { name: "Login", path: "/login" }, { name: "register", path: "/register" }, { name: "Favoritos", path: "/favoritos" }],
      cookie: "",
    }
  }
@@ -17,13 +16,7 @@ class Header extends Component {
      <nav>
        <ul className="nav nav-tabs my-4">
         <Link to="/" exact="true" className="stremeo">STREMEO</Link>
-         <Elementosnav
-           name={this.state.permanente[0].name}
-           path={this.state.permanente[0].path}
-         />
-
-
-         {this.state.condicionales.map((e, i) => (
+         {this.state.permanente.map((e, i) => (
            <Elementosnav
              key={i}
              name={e.name}
