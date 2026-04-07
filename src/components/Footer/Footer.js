@@ -1,6 +1,6 @@
 function Footer() {
     return (
-        <footer>
+        <footer className="footer">
             <p>Santos Corti</p>
             <p>Ramiro Calello</p>
             <p>Fernando Warszawiak</p>

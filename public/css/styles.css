@@ -115,6 +115,18 @@ nav {
     font-style: italic;
 }
 
+footer {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer p {
+    display: block;
+    margin-left: 25px;
+}
+
 @media(min-width: 765px) {
     nav {
         grid-template-columns: 1fr;
