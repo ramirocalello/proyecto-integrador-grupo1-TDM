@@ -22,8 +22,8 @@ function App() {
        <Route path="/register" component={Register} />
        <Route path="/favoritos" component={Favoritos} />
        <Route path="/login" component={Login} />
-       <Route path="/results" component={Results} />
-     </Switch>
+      <Route path="/results/:tipo/:busqueda" component={Results} />  
+   </Switch>
       <Footer />
     </React.Fragment>
   );

@@ -1,5 +1,7 @@
 import { Component } from "react";
 import Card from "../../components/Card/Card.js"
+import Busquedad from "../../components/Busquedad/Busquedad";
+
 
 class Home extends Component {
     constructor(props) {
@@ -32,6 +34,7 @@ class Home extends Component {
     render() {
         return (
             <div>
+            <Busquedad />
             <section className="card-container">
                 {this.state.populares === '' ? (
                     <p>Cargando...</p>

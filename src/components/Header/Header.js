@@ -1,6 +1,6 @@
 import { Component } from "react";
 import Elementosnav from "../Elementosnav/Elementosnav"
-
+import Busquedad from "../Busquedad/Busquedad";
 
 class Header extends Component {
  constructor(props) {
