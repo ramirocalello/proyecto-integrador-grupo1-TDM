@@ -125,6 +125,15 @@ nav {
     margin-left: 20px;
 }
 
+.login{
+    display: flex;
+    font-weight: 10%;
+    font-size: 15px;
+    background-color: rgb(161, 161, 161);
+    border-radius: 12px;
+    margin-left: 20px;
+}
+
 footer {
     margin-top: 10px;
     display: flex;
