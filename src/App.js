@@ -10,11 +10,13 @@ import Results from "./screens/Results/Results.js"
 import Header from './components/Header/Header.js'
 import Favoritos from './screens/Favoritos/Favoritos.js'
 import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min.js"
+import Busquedad from "./components/Busquedad/Busquedad.js"
 
 function App() {
   return (
     <React.Fragment>
       <Header/>
+      <Busquedad/>
       <Switch>
        <Route path="/" exact={true} component={Home} />
        <Route path="/peliculas" component={Peliculas} />

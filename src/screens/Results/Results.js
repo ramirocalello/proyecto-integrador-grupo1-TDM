@@ -40,7 +40,6 @@ class Results extends Component {
                 <h2>
                     Resultados de búsqueda de {this.state.tipo === "movie" ? "películas" : "series"}
                 </h2>
-                <Busquedad />
                 <p>Buscaste: {this.state.busqueda}</p>
 
                 <section className="cards-container">
