@@ -29,7 +29,7 @@ class Card extends Component {
                     <p className={`card-text ${this.state.className}`}>{this.props.desc}</p>
                     <div className="link-card">
                         <button className="btn btn-primary" onClick={(e)=> this.descipcion(e)}>{this.state.texto}</button>
-                        <Link to={`/detalle${this.props.id}`} className="btn btn-primary">Ir al detalle</Link>
+                        <Link to={`/detalle/${this.props.id}`} className="btn btn-primary">Ir al detalle</Link>
                         {this.state.cookie === '' ? <button className={`hidden-btn`}></button> : <button className={`btn alert-primary ${this.state.favoritosDisplay}`}>🩶</button>}
                         
                     </div>
