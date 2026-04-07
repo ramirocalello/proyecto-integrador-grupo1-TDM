@@ -72,7 +72,7 @@ class Home extends Component {
                                         img={e.poster_path}
                                     />
                                 ))}
-                                <Link to="/Series" className="btn btn-primary">Ver Mas</Link>
+                                <Link to="/series" className="btn btn-primary">Ver Mas</Link>
                             </section>
                         </div>
                     )
