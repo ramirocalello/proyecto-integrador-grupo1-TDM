@@ -1,6 +1,6 @@
 import { Component } from "react";
 import Card from "../../components/Card/Card.js"
-import Busquedad from "../../components/Busquedad/Busquedad";
+import Busquedad from "../components/Busquedad/Busquedad";
 
 
 class Home extends Component {
