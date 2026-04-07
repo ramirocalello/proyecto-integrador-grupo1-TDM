@@ -7,7 +7,7 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cartelera: [],
+            series: [],
             populares: [],
         }
     }
@@ -25,7 +25,7 @@ class Home extends Component {
             .then(response => response.json())
             .then(data => this.setState(
                 {
-                    cartelera: data.results,
+                    series: data.results,
                 }
             ))
             .catch((error) => console.log(error))
@@ -57,13 +57,13 @@ class Home extends Component {
                     }
                 </section>
                 <section className="card-container">
-                    {this.state.cartelera === '' ? (
+                    {this.state.series === '' ? (
                         <p>Cargando...</p>
                     ) : (
                         <div>
                             <h2 className="alert alert-primary">Series Populares</h2>
                             <section className="row cards home" id="movies">
-                                {this.state.cartelera.map((e, idx) => (
+                                {this.state.series.map((e, idx) => (
                                     <Card
                                         key={idx}
                                         id={e.id}
