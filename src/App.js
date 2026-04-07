@@ -14,7 +14,6 @@ import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min.js"
 function App() {
   return (
     <React.Fragment>
-      <h1 className="stremeo">STREMEO</h1>
       <Header/>
       <Switch>
        <Route path="/" exact={true} component={Home} />

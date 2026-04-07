@@ -1,6 +1,7 @@
 import { Component } from "react";
 import Elementosnav from "../Elementosnav/Elementosnav"
 import Busquedad from "../Busquedad/Busquedad";
+import { Link } from "react-router-dom";
 
 class Header extends Component {
  constructor(props) {
@@ -15,6 +16,7 @@ class Header extends Component {
    return (
      <nav>
        <ul className="nav nav-tabs my-4">
+        <Link to="/" exact="true" className="stremeo">STREMEO</Link>
          <Elementosnav
            name={this.state.permanente[0].name}
            path={this.state.permanente[0].path}
