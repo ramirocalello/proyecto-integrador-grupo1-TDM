@@ -1,32 +1,32 @@
 import { Component } from "react";
 import Card from "../../components/Card/Card.js"
 
-class Series extends Component {
+class Peliculas extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            series: [],
+            peliculas: [],
             paginaActual: 1,
         }
     }
     componentDidMount() {
-        fetch('https://api.themoviedb.org/3/discover/tv?include_adult=false&language=en-US&page=1&sort_by=popularity.desc&api_key=8c5941c39922b8ccee40a07dc13fb0fc')
+        fetch("https://api.themoviedb.org/3/movie/popular?api_key=8c5941c39922b8ccee40a07dc13fb0fc")
             .then(response => response.json())
             .then(data => this.setState(
                 {
-                    series: data.results,
+                    peliculas: data.results,
                     paginaActual: 2,
                 }
             ))
             .catch((error) => console.log(error))
 
     }
-    masSeries() {
-        fetch(`https://api.themoviedb.org/3/discover/tv?include_adult=false&language=en-US&page=1&sort_by=popularity.desc&api_key=8c5941c39922b8ccee40a07dc13fb0fc&page=${this.state.paginaActual}`)
+    masPeliculas() {
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=8c5941c39922b8ccee40a07dc13fb0fc&page=${this.state.paginaActual}`)
             .then(response => response.json())
             .then(data => this.setState(
                 {
-                    series: this.state.series.concat(data.results),
+                    peliculas: this.state.peliculas.concat(data.results),
                     paginaActual: this.state.paginaActual + 1
                 }
             ))
@@ -37,13 +37,13 @@ class Series extends Component {
         return (
             <div>
                 <section className="card-container">
-                    {this.state.series === '' ? (
+                    {this.state.peliculas === '' ? (
                         <p>Cargando...</p>
                     ) : (
                         <div>
-                            <h2 className="alert alert-primary">series Populares</h2>
+                            <h2 className="alert alert-primary">Peliculas Populares</h2>
                             <section className="row cards home" id="movies">
-                                {this.state.series.map((e, idx) => (
+                                {this.state.peliculas.map((e, idx) => (
                                     <Card
                                         key={idx}
                                         id={e.id}
@@ -52,7 +52,7 @@ class Series extends Component {
                                         img={e.poster_path}
                                     />
                                 ))}
-                                <button className="btn btn-primary" onClick={() => this.masSeries()}>Cargas Mas series</button>
+                                <button className="btn btn-primary" onClick={() => this.masPeliculas()}>Cargas Mas Peliculas</button>
                             </section>
                         </div>
                     )
@@ -65,4 +65,4 @@ class Series extends Component {
 
 // Falta hacer el formulario para filtrar la busquedad
 
-export default Series
+export default Peliculas

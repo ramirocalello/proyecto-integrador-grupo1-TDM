@@ -18,3 +18,11 @@
 .visible-p {
     display: block;
 }
+
+.hidden-btn {
+    display: none;
+}
+
+.visible-btn {
+    display: block;
+}

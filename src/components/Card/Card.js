@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom/cjs/react-router-dom.min.js'
 import { Component } from "react";
 import './Card.css'
 
@@ -7,7 +8,7 @@ class Card extends Component {
         this.state = {
             className: 'hidden-p',
             texto: 'Ver Descpricíon',
-            activeClass: '',
+            cookie: ''
         }
     }
     descipcion(e) {
@@ -27,9 +28,10 @@ class Card extends Component {
                     <h5 className="card-title">{this.props.title}</h5>
                     <p className={`card-text ${this.state.className}`}>{this.props.desc}</p>
                     <div className="link-card">
-                        <a href={``} className="btn btn-primary" onClick={(e)=> this.descipcion(e)}>{this.state.texto}</a>
-                        <a href={``} className="btn btn-primary">Ir al detalle</a>
-                        <a href="" className="btn alert-primary">🩶</a>
+                        <button className="btn btn-primary" onClick={(e)=> this.descipcion(e)}>{this.state.texto}</button>
+                        <Link to={`/detalle${this.props.id}`} className="btn btn-primary">Ir al detalle</Link>
+                        {this.state.cookie === '' ? <button className={`hidden-btn`}></button> : <button className={`btn alert-primary ${this.state.favoritosDisplay}`}>🩶</button>}
+                        
                     </div>
                 </div>
             </article>

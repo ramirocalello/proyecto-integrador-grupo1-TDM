@@ -1,5 +1,7 @@
 import { Component } from "react";
 import Card from "../../components/Card/Card.js"
+import { Link } from 'react-router-dom/cjs/react-router-dom.min.js'
+import './Home.css'
 
 class Home extends Component {
     constructor(props) {
@@ -19,7 +21,7 @@ class Home extends Component {
             ))
             .catch((error) => console.log(error))
 
-            fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_release_type=2&api_key=8c5941c39922b8ccee40a07dc13fb0fc')
+        fetch('https://api.themoviedb.org/3/discover/tv?include_adult=false&language=en-US&page=1&sort_by=popularity.desc&api_key=8c5941c39922b8ccee40a07dc13fb0fc')
             .then(response => response.json())
             .then(data => this.setState(
                 {
@@ -27,51 +29,55 @@ class Home extends Component {
                 }
             ))
             .catch((error) => console.log(error))
-    }    
+    }
 
     render() {
         return (
             <div>
-            <section className="card-container">
-                {this.state.populares === '' ? (
-                    <p>Cargando...</p>
-                ) : (
-                    <div>
-                   <h2 className="alert alert-primary">Peliculas Populares</h2>
-                    <section className="row cards" id="movies">
-                    {this.state.populares.map((e, idx) => (
-                        <Card
-                        key={idx}
-                        title={e.original_title}
-                        desc={e.overview}
-                        img={e.poster_path}
-                        />
-                    ))}
-                    </section>
-                    </div>
-                )
-                }
-            </section>
-            <section className="card-container">
-                {this.state.cartelera === '' ? (
-                    <p>Cargando...</p>
-                ) : (
-                    <div>
-                   <h2 className="alert alert-primary">Peliculas en cartelera</h2>
-                    <section className="row cards" id="movies">
-                    {this.state.cartelera.map((e, idx) => (
-                        <Card
-                        key={idx}
-                        title={e.original_title}
-                        desc={e.overview}
-                        img={e.poster_path}
-                        />
-                    ))}
-                    </section>
-                    </div>
-                )
-                }
-            </section>
+                <section className="card-container">
+                    {this.state.populares === '' ? (
+                        <p>Cargando...</p>
+                    ) : (
+                        <div>
+                            <h2 className="alert alert-primary">Peliculas Populares</h2>
+                            <section className="row cards home" id="movies">
+                                {this.state.populares.map((e, idx) => (
+                                    <Card
+                                        key={idx}
+                                        id={e.id}
+                                        title={e.original_title}
+                                        desc={e.overview}
+                                        img={e.poster_path}
+                                    />
+                                ))}
+                                <Link to="/Peliculas" className="btn btn-primary">Ver Mas</Link>
+                            </section>
+                        </div>
+                    )
+                    }
+                </section>
+                <section className="card-container">
+                    {this.state.cartelera === '' ? (
+                        <p>Cargando...</p>
+                    ) : (
+                        <div>
+                            <h2 className="alert alert-primary">Series Populares</h2>
+                            <section className="row cards home" id="movies">
+                                {this.state.cartelera.map((e, idx) => (
+                                    <Card
+                                        key={idx}
+                                        id={e.id}
+                                        title={e.original_title}
+                                        desc={e.overview}
+                                        img={e.poster_path}
+                                    />
+                                ))}
+                                <Link to="/series" className="btn btn-primary">Ver Mas</Link>
+                            </section>
+                        </div>
+                    )
+                    }
+                </section>
             </div>
         )
     }
