@@ -1,4 +1,6 @@
 import { Component } from "react"
+import { Link } from "react-router-dom"
+
 
 class Register extends Component {
     constructor(props) {
@@ -27,8 +29,7 @@ class Register extends Component {
                     <input type="email" name="email" onChange={(event) => this.controlarCambios(event)} value={this.state.email}></input>
                     <label>Password:</label>
                     <input type="password" name="password" onChange={(event) => this.controlarCambios(event)} value={this.state.password}></input>
-                    <input type="submit" value="Registrarse"></input>
-
+                    <Link to="/login"><button type="button">Registrarse</button></Link>
                 </form>
             </div>
         )

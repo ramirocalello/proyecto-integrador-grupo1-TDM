@@ -17,7 +17,7 @@ class Header extends Component {
        <ul className="nav nav-tabs my-4">
         <Link to="/" exact="true" className="stremeo">STREMEO</Link>
         <Link to="/register" exact="true" className="register">CREAR CUENTA</Link>
-        <Link to="/login" exact="true" className="login">REGISTRARSE</Link>
+        <Link to="/login" exact="true" className="login">INICIAR SESION</Link>
          {this.state.permanente.map((e, i) => (
            <Elementosnav
              key={i}
