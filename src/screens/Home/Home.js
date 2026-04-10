@@ -2,6 +2,7 @@ import { Component } from "react";
 import Card from "../../components/Card/Card.js"
 import { Link } from 'react-router-dom/cjs/react-router-dom.min.js'
 import './Home.css'
+import Buscador from "../../components/Buscador/Buscador.js";
 
 class Home extends Component {
     constructor(props) {
@@ -21,7 +22,7 @@ class Home extends Component {
             ))
             .catch((error) => console.log(error))
 
-        fetch('https://api.themoviedb.org/3/discover/tv?include_adult=false&language=en-US&page=1&sort_by=popularity.desc&api_key=8c5941c39922b8ccee40a07dc13fb0fc')
+        fetch('https://api.themoviedb.org/3/tv/popular?api_key=8c5941c39922b8ccee40a07dc13fb0fc')
             .then(response => response.json())
             .then(data => this.setState(
                 {
@@ -34,6 +35,9 @@ class Home extends Component {
     render() {
         return (
             <div>
+                <div>
+                    <Buscador />
+                </div>
                 <section className="card-container">
                     {this.state.populares === '' ? (
                         <p>Cargando...</p>

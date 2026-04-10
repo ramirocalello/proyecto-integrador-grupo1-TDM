@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Card from "../../components/Card/Card";
-import Busquedad from "../../components/Busquedad/Busquedad";
+import Busquedad from "../../components/Buscador/Buscador";
 
 class Results extends Component {
     constructor(props) {

@@ -13,7 +13,7 @@ class Detalle extends Component {
    }
    componentDidMount() {
        let movieId = this.props.match.params.id;
-
+       let serieId = this.props.match.params.id;
 
        fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=8c5941c39922b8ccee40a07dc13fb0fc`)
            .then(response => response.json())
@@ -23,6 +23,17 @@ class Detalle extends Component {
                }
            ))
            .catch((error) => console.log(error))
+           
+       fetch(`https://api.themoviedb.org/3/tv/${serieId}?api_key=8c5941c39922b8ccee40a07dc13fb0fc`)
+           .then(response => response.json())
+           .then(data => this.setState(
+               {
+                   data: data
+               }
+           ))
+           .catch((error) => console.log(error))
+
+           
 
 
    }
