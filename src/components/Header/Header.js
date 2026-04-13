@@ -1,12 +1,14 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
 import './header.css'
+import Cookies from 'universal-cookie'
+const cookies = new Cookies()
 
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cookie: '',
+      cookie: cookies,
       display: ''
     }
 
