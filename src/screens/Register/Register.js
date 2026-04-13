@@ -9,7 +9,6 @@ class Register extends Component {
             email: "",
             emailUsados: "",
             password: "",
-            cookie: ""
         }
     }
 
@@ -31,17 +30,13 @@ class Register extends Component {
        } else if (this.state.password.length < 5) {
            alert('La contraseña debe tener al menos 5 caracteres');
        } else {
-           this.setState({
-               cookie: '1'
-        });
-           
             let nuevoUsuario = {
-               email: this.state.email,
-               password: this.state.password
+            email: this.state.email,
+            password: this.state.password
             }
 
         localStorage.setItem('usuario', JSON.stringify(nuevoUsuario));
-        e.target.submit()
+        this.props.history.push("/Login")
         }
     }
 
@@ -66,15 +61,15 @@ class Register extends Component {
                         <form onSubmit={(e) => this.condicionesSubmit(e)}>
                             <div className="form-group">
                                 
-                                <label>Name or email:</label>
-                                <input type="text" onChange={(e) => this.controlarCambioEmail(e)} value={this.state.email}/>
+                                <label>Email:</label>
+                                <input type="email" onChange={(e) => this.controlarcambioEmail(e)} value={this.state.email}/>
                             </div>
                             <div className="form-group">
                                 <label>Password:</label>
                                 <input type="text" onChange={(e) => this.controlarcambioPassword(e)} value={this.state.password}/>
                             </div>
-                            <input type= "submit" value ="Submit" />
-                            <button type="button">Registrarse</button>
+                            
+                            <button type="submit">Registrarse</button> 
                         </form>
                             <p className="mt-3 text-center">¿Ya tenés cuenta? <Link to="/Login">Iniciar sesión</Link></p>
                     </div>
