@@ -41,7 +41,7 @@ class Series extends Component {
                         <p>Cargando...</p>
                     ) : (
                         <div>
-                            <h2 className="alert alert-primary">series Populares</h2>
+                            <h2 className="alert alert-primary">Series Populares</h2>
                             <section className="row cards home" id="movies">
                                 {this.state.series.map((e, idx) => (
                                     <Card
