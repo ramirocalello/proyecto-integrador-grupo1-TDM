@@ -7,6 +7,7 @@ class Peliculas extends Component {
         this.state = {
             peliculas: [],
             paginaActual: 1,
+            busqueda: ""
         }
     }
     componentDidMount() {
@@ -32,8 +33,19 @@ class Peliculas extends Component {
             ))
             .catch((error) => console.log(error))
     }
+    ControlarInput(event) {
+this.setState({
+    busqueda: event.target.value
+})
+
+    }
 
     render() {
+        let PeliculasFiltradas= this.state.peliculas.filter((peliculas) => 
+            peliculas.original_title.toLowerCase().includes(this.state.busqueda.toLowerCase())
+    
+    
+    )
         return (
             <div>
                 <section className="card-container">
@@ -41,9 +53,18 @@ class Peliculas extends Component {
                         <p>Cargando...</p>
                     ) : (
                         <div>
+                              <form>
+                                <input
+                                    type="text"
+                                    value={this.state.busqueda}
+                                    onChange={(event) => this.ControlarInput(event)}
+                                    placeholder="Filtrar peliculas..."
+                                />
+                            </form>
+
                             <h2 className="alert alert-primary">Peliculas Populares</h2>
                             <section className="row cards home" id="movies">
-                                {this.state.peliculas.map((e, idx) => (
+                                {PeliculasFiltradas.map((e, idx) => ( 
                                     <Card
                                         key={idx}
                                         id={e.id}
@@ -63,6 +84,5 @@ class Peliculas extends Component {
     }
 }
 
-// Falta hacer el formulario para filtrar la busquedad
 
 export default Peliculas
