@@ -71,7 +71,7 @@ class Register extends Component {
                             
                             <button type="submit">Registrarse</button> 
                         </form>
-                            <p className="mt-3 text-center">¿Ya tenés cuenta? <Link to="/Login">Iniciar sesión</Link></p>
+                            <p className="mt-3 text-center">¿Ya tenés cuenta? <Link to="/login">Iniciar sesión</Link></p>
                     </div>
                 </div>
             </div>
