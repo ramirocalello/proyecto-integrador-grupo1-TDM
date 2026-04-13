@@ -9,7 +9,7 @@ function Carddetalle(props) {
             <section className="row">
                 <img className="col-md-6" src={`https://image.tmdb.org/t/p/w342${props.img}`} alt="" />
                 <section className="col-md-6 info">
-                    <h3>Descprcion</h3>
+                    <h3>Descripcion</h3>
                     <p className="description">{props.sinopsis}</p>
                     <p className="mt-0 mb-0" id="release-date">Fecha de estreno: {props.estreno}</p>
                     <p className="mt-0" id="votes">Rating: {props.rating}</p>

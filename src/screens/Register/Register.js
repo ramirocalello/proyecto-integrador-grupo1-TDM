@@ -7,17 +7,54 @@ class Register extends Component {
         super(props)
         this.state = {
             email: "",
+            emailUsados: "",
             password: "",
             cookie: ""
         }
     }
 
-    evitarSubmit = (event) => {
-        event.preventDefault();
+       componentDidMount() {
+       let usarios = localStorage.getItem('usuarios')
+       let usariosParce = JSON.parse(usarios)
+       this.setState({
+           usarios: usariosParce
+         })
+       console.log(this.state.usarios);
     }
 
-    controlarCambios = (event) => {
-        this.setState({ valor: event.target.value })
+       condicionesSubmit = (e) => {
+       e.preventDefault();
+
+
+       if (this.state.email === this.state.emailUsados) {
+           alert('El email ingresado ya existe');
+       } else if (this.state.password.length < 5) {
+           alert('La contraseña debe tener al menos 5 caracteres');
+       } else {
+           this.setState({
+               cookie: '1'
+        });
+           
+            let nuevoUsuario = {
+               email: this.state.email,
+               password: this.state.password
+            }
+
+        localStorage.setItem('usuario', JSON.stringify(nuevoUsuario));
+        e.target.submit()
+        }
+    }
+
+    controlarcambioEmail =(e) =>{
+        this.setState({email: e.target.value},
+            () => console.log(this.state.email)
+        )
+    }
+
+    controlarcambioPassword =(e) =>{
+        this.setState({password: e.target.value},
+            () => console.log(this.state.email)
+        )
     }
 
     render() {
@@ -26,18 +63,20 @@ class Register extends Component {
                 <h2 className="alert alert-primary">Registrarse</h2>
                 <div className="row justify-content-center">
                     <div className="col-md-6">
-                        <form onSubmit={(event) => this.evitarSubmit(event)}>
+                        <form onSubmit={(e) => this.condicionesSubmit(e)}>
                             <div className="form-group">
+                                
                                 <label>Name or email:</label>
-                                <input type="email" name="email" onChange={(event) => this.controlarCambios(event)} value={this.state.email}></input>
+                                <input type="text" onChange={(e) => this.controlarCambioEmail(e)} value={this.state.email}/>
                             </div>
                             <div className="form-group">
                                 <label>Password:</label>
-                                <input type="password" name="password" onChange={(event) => this.controlarCambios(event)} value={this.state.password}></input>
+                                <input type="text" onChange={(e) => this.controlarcambioPassword(e)} value={this.state.password}/>
                             </div>
-                            <Link to="/login"><button type="button">Registrarse</button></Link>
+                            <input type= "submit" value ="Submit" />
+                            <button type="button">Registrarse</button>
                         </form>
-                        <p className="mt-3 text-center">¿Ya tenés cuenta? <Link to="/Login">Iniciar sesión</Link></p>
+                            <p className="mt-3 text-center">¿Ya tenés cuenta? <Link to="/Login">Iniciar sesión</Link></p>
                     </div>
                 </div>
             </div>

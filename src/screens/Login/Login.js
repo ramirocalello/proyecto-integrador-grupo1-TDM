@@ -24,7 +24,7 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <h2 className="alert alert-primary">Iniciar sesión</h2>
+                <h2 className="alert alert-primary">Iniciar Sesión</h2>
                 <div className="row justify-content-center">
                     <div className="col-md-6">
                         <form onSubmit={(event) => this.evitarSubmit(event)}>
