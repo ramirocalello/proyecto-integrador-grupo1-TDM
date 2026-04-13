@@ -11,7 +11,6 @@ class Header extends Component {
       cookie: '',
       display: ''
     }
-
   }
   render() {
     return (
@@ -27,7 +26,7 @@ class Header extends Component {
             <Link to="/series" className="nav-link">Series</Link>
           </li>
 
-          {this.state.cookie === '' ? (
+          {![this.state.cookie] ? (
             <div className="condicional">
               < li className="nav-item">
                 <Link to="/register" className="nav-link">Crear Cuenta</Link>
