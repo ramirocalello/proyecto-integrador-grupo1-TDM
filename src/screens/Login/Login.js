@@ -30,7 +30,7 @@ class Login extends Component {
                 email: this.state.email,
                 password: this.state.password
             }
-            e.target.submit()
+    
             cookies.set('usuario', JSON.stringify(usuarioCheck))
              this.props.history.push("/")
         }
@@ -46,10 +46,6 @@ class Login extends Component {
         this.setState({ password: e.target.value },
             () => console.log(this.state.email)
         )
-    }
-
-    logout = (e) => {
-        cookies.remove('usuario')
     }
 
 
@@ -70,7 +66,7 @@ class Login extends Component {
                                 />
                             </div>
                             <button className="btn btn-primary btn-block" type="submit">Ingresar</button>
-                            <button className="btn btn-primary btn-block" onClick={(e) => this.logout(e)}>Logout</button>
+                           
                         </form>
                         <p className="mt-3 text-center">¿No tenés cuenta? <Link to="/register">Registrarse</Link></p>
 

@@ -12,6 +12,12 @@ class Header extends Component {
       display: ''
     }
   }
+  logout = () => {
+    cookies.remove('usuario', { path: '/' });
+    window.location.href = "/login";
+  }
+
+
   render() {
     return (
       <nav>
@@ -27,18 +33,34 @@ class Header extends Component {
           </li>
 
           {/* {![this.state.cookie] ? ( */}
-            <div className="condicional">
-              < li className="nav-item">
-                <Link to="/register" className="nav-link">Crear Cuenta</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/login" className="nav-link">Iniciar Sesion</Link>
-              </li>
-            </div>
-          {/* ) : ( */}
-            <li className="nav-item">
-              <Link to="/favoritos" className="nav-link">Favoritos</Link>
+          <div className="condicional">
+            < li className="nav-item">
+              <Link to="/register" className="nav-link">Crear Cuenta</Link>
             </li>
+            <li className="nav-item">
+              <Link to="/login" className="nav-link">Iniciar Sesion</Link>
+            </li>
+          </div>
+          {/* ) : ( */}
+          <li className="nav-item">
+            <Link to="/favoritos" className="nav-link">Favoritos</Link>
+          </li>
+
+          {cookies.get('usuario') ? (
+            <li className="nav-item">
+              <button className="nav-link btn btn-link" onClick={this.logout}>Logout</button>
+            </li>
+          ) : ""}
+
+          {cookies.get("usuario")?"": < li className="nav-item">
+              <Link to="/register" className="nav-link">Crear Cuenta</Link>
+            </li>}
+
+          {cookies.get("usuario")?"":<li className="nav-item">
+              <Link to="/login" className="nav-link">Iniciar Sesion</Link>
+            </li>
+          }
+          
           {/* )
           } */}
 
