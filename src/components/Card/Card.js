@@ -22,16 +22,18 @@ class Card extends Component {
         })
     }
 
-    favoritos(e) {
-    let favoritos = cookies.get('favoritos')
+ favoritos(e) {
+    let favoritos = localStorage.getItem('favoritos')
 
-    if (favoritos !== undefined) {
+    if (favoritos !== null) {
         favoritos = JSON.parse(favoritos)
     } else {
         favoritos = []
     }
+
     favoritos.push(this.props.id)
-    cookies.set('favoritos', JSON.stringify(favoritos))
+
+    localStorage.setItem('favoritos', JSON.stringify(favoritos))
 }
     render() {
         
@@ -52,15 +54,15 @@ class Card extends Component {
                         </Link>
 
                         {cookies.get("user") === undefined ? (
-                            <button className="hidden-btn"></button>
-                        ) : (
                             <button 
                                 onClick={(e) => this.favoritos(e)} 
                                 className={`btn alert-primary ${this.state.favoritosDisplay}`}
                             >
                                 🩶
                             </button>
+                        ) : (
                             
+                            <button className="hidden-btn"></button>
                         )
                         }
                     

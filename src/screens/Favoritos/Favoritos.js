@@ -1,7 +1,5 @@
 import { Component } from "react";
-import Cookies from 'universal-cookie'
-
-const cookies = new Cookies()
+import Card from "../../components/Card/Card.js";
 
 class Favoritos extends Component {
     constructor(props) {
@@ -12,17 +10,20 @@ class Favoritos extends Component {
     }
 
     componentDidMount() {
-        let favoritos = cookies.get('favoritos')
+        let favs = localStorage.getItem('favoritos')
 
-        if (favoritos !== undefined) {
-            favoritos = JSON.parse(favoritos)
-        } else {
-            favoritos = []
+        if (favs !== null) {
+            let favoritosParseados = JSON.parse(favs)
+
+            favoritosParseados.map((fav, idx) =>
+                fetch(`https://api.themoviedb.org/3/movie/${fav}?api_key=8c5941c39922b8ccee40a07dc13fb0fc`)
+                    .then(response => response.json())
+                    .then(data => this.setState({
+                        favoritos: this.state.favoritos.concat(data)
+                    }))
+                    .catch((error) => console.log(error))
+            )
         }
-
-        this.setState({
-            favoritos: favoritos
-        })
     }
 
     render() {
@@ -33,8 +34,14 @@ class Favoritos extends Component {
                 {this.state.favoritos.length === 0 ? (
                     <p>No hay favoritos</p>
                 ) : (
-                    this.state.favoritos.map((id, idx) => (
-                        <p key={idx}>ID: {id}</p>
+                    this.state.favoritos.map((peli, idx) => (
+                        <Card
+                            key={idx}
+                            id={peli.id}
+                            title={peli.original_title}
+                            desc={peli.overview}
+                            img={peli.poster_path}
+                        />
                     ))
                 )}
             </div>
