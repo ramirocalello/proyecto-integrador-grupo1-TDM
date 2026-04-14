@@ -26,7 +26,7 @@ class Header extends Component {
             <Link to="/series" className="nav-link">Series</Link>
           </li>
 
-          {![this.state.cookie] ? (
+          {/* {![this.state.cookie] ? ( */}
             <div className="condicional">
               < li className="nav-item">
                 <Link to="/register" className="nav-link">Crear Cuenta</Link>
@@ -35,12 +35,12 @@ class Header extends Component {
                 <Link to="/login" className="nav-link">Iniciar Sesion</Link>
               </li>
             </div>
-          ) : (
+          {/* ) : ( */}
             <li className="nav-item">
               <Link to="/favoritos" className="nav-link">Favoritos</Link>
             </li>
-          )
-          }
+          {/* )
+          } */}
 
         </ul>
       </nav >
