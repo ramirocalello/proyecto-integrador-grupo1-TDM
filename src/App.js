@@ -11,6 +11,8 @@ import Header from './components/Header/Header.js'
 import Favoritos from './screens/Favoritos/Favoritos.js'
 import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min.js"
 import Buscador from "./components/Buscador/Buscador.js"
+import notFound from "./screens/Notfound/Notfound.js"
+
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
        <Route path="/favoritos" component={Favoritos} />
        <Route path="/login" component={Login} />
       <Route path="/results/:tipo/:busqueda" component={Results} />  
+      <Route path= "/notFound" component={notFound}/>
    </Switch>
       <Footer />
     </React.Fragment>
