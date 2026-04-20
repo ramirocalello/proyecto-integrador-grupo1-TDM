@@ -2,3 +2,8 @@
     display: flex;
     flex-direction: row;
 }
+
+.div-header {
+    display: flex;
+    flex-direction: row;
+}
