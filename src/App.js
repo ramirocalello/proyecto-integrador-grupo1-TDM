@@ -28,7 +28,7 @@ function App() {
        <Route path="/favoritos" component={Favoritos} />
        <Route path="/login" component={Login} />
       <Route path="/results/:tipo/:busqueda" component={Results} />  
-      <Route path= "/notFound" component={notFound}/>
+      <Route path= "*" component={notFound}/>
    </Switch>
       <Footer />
     </React.Fragment>

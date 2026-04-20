@@ -32,7 +32,10 @@ class Results extends Component {
                 )
                 .catch((error) => console.log(error));
         }
+
+
     }
+
 
     render() {
         return (

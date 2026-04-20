@@ -2,6 +2,10 @@ import { Component } from "react"
 import { Link } from "react-router-dom"
 
 class notFound extends Component {
+    constructor(props) {
+    super(props);
+    }
+  
   render() {
     return (
       <div className="container text-center mt-5">
