@@ -21,9 +21,11 @@ class Favoritos extends Component {
             peliculasParseadas.map((id) =>
                 fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=8c5941c39922b8ccee40a07dc13fb0fc`)
                     .then(response => response.json())
-                    .then(data => this.setState({
-                        peliculas: this.state.peliculas.concat(data)
-                    }))
+                    .then(data => {
+                        this.setState((estadoAnterior) => ({
+                            peliculas: estadoAnterior.peliculas.concat(data)
+                        }))
+                    })
                     .catch(error => console.log(error))
             )
         }
@@ -36,9 +38,11 @@ class Favoritos extends Component {
             seriesParseadas.map((id) =>
                 fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=8c5941c39922b8ccee40a07dc13fb0fc`)
                     .then(response => response.json())
-                    .then(data => this.setState({
-                        series: this.state.series.concat(data)
-                    }))
+                    .then(data => {
+                        this.setState((estadoAnterior) => ({
+                            series: estadoAnterior.series.concat(data)
+                        }))
+                    })
                     .catch(error => console.log(error))
             )
         }
@@ -57,7 +61,7 @@ class Favoritos extends Component {
                         <Card
                             key={idx}
                             id={peli.id}
-                            title={peli.original_title}
+                            title={peli.title}
                             desc={peli.overview}
                             img={peli.poster_path}
                             tipo="movie"

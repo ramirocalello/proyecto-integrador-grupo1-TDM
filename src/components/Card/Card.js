@@ -10,21 +10,20 @@ class Card extends Component {
         super(props);
         this.state = {
             className: 'hidden-p',
-            texto: 'Ver Descpricíon',
+            texto: 'Ver Descripción',
             cookie: cookies.get('usuario'),
             favorito: false
         }
     }
 
     componentDidMount() {
-        let keyStorage = this.props.tipo === "movie" ? "favPeliculas" : "favSeries"
+        let keyStorage = this.props.tipo === "tv" ? "favSeries" : "favPeliculas"
+        let storage = localStorage.getItem(keyStorage)
 
-        let favoritos = localStorage.getItem(keyStorage)
+        if (storage !== null) {
+            let storageParse = JSON.parse(storage)
 
-        if (favoritos !== null) {
-            let favParse = JSON.parse(favoritos)
-
-            let existe = favParse.filter((id) => id === this.props.id)
+            let existe = storageParse.filter((id) => id === this.props.id)
 
             if (existe.length > 0) {
                 this.setState({
@@ -34,17 +33,16 @@ class Card extends Component {
         }
     }
 
-    descipcion(e) {
+    descripcion(e) {
         e.preventDefault()
         this.setState({
             className: this.state.className === "hidden-p" ? "visible-p" : "hidden-p",
-            texto: this.state.texto === "Ver Descpricíon" ? "Minimizar" : "Ver Descpricíon"
+            texto: this.state.texto === "Ver Descripción" ? "Minimizar" : "Ver Descripción"
         })
     }
 
     agregarFavoritos(id) {
-        let keyStorage = this.props.tipo === "movie" ? "favPeliculas" : "favSeries"
-
+        let keyStorage = this.props.tipo === "tv" ? "favSeries" : "favPeliculas"
         let storage = localStorage.getItem(keyStorage)
 
         if (storage !== null) {
@@ -67,15 +65,13 @@ class Card extends Component {
     }
 
     sacarFavoritos(id) {
-        let keyStorage = this.props.tipo === "movie" ? "favPeliculas" : "favSeries"
+        let keyStorage = this.props.tipo === "tv" ? "favSeries" : "favPeliculas"
+        let storage = localStorage.getItem(keyStorage)
 
-        let favoritos = localStorage.getItem(keyStorage)
+        if (storage !== null) {
+            let storageParse = JSON.parse(storage)
 
-        if (favoritos !== null) {
-            let favParse = JSON.parse(favoritos)
-
-            let nuevoArray = favParse.filter((elemento) => elemento !== id)
-
+            let nuevoArray = storageParse.filter((elemento) => elemento !== id)
             localStorage.setItem(keyStorage, JSON.stringify(nuevoArray))
         }
 
@@ -101,7 +97,10 @@ class Card extends Component {
                     </p>
 
                     <div className="link-card">
-                        <button className="btn btn-primary" onClick={(e) => this.descipcion(e)}>
+                        <button
+                            className="btn btn-primary"
+                            onClick={(e) => this.descripcion(e)}
+                        >
                             {this.state.texto}
                         </button>
 
