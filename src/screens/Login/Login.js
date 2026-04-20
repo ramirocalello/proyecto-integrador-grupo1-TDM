@@ -1,5 +1,6 @@
 import { Component } from "react"
 import { Link } from 'react-router-dom'
+import Header from '../../components/Header/Header.js'
 import Cookies from "universal-cookie"
 const cookies = new Cookies()
 
@@ -52,6 +53,8 @@ class Login extends Component {
     render() {
         return (
             <div>
+            <Header/>
+            <div>
                 <h2 className="alert alert-primary">Iniciar Sesión</h2>
                 <div className="row justify-content-center">
                     <div className="col-md-6">
@@ -72,6 +75,7 @@ class Login extends Component {
 
                     </div>
                 </div>
+            </div>
             </div>
         )
     }

@@ -3,6 +3,7 @@ import Card from "../../components/Card/Card.js"
 import { Link } from 'react-router-dom/cjs/react-router-dom.min.js'
 import './Home.css'
 import Buscador from "../../components/Buscador/Buscador.js";
+import Header from '../../components/Header/Header.js'
 
 class Home extends Component {
     constructor(props) {
@@ -34,6 +35,8 @@ class Home extends Component {
 
     render() {
         return (
+            <div>
+            <Header/>
             <div>
                 <div>
                     <Buscador />
@@ -82,6 +85,7 @@ class Home extends Component {
                     )
                     }
                 </section>
+            </div>
             </div>
         )
     }

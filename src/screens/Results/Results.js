@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Card from "../../components/Card/Card";
 import Busquedad from "../../components/Buscador/Buscador";
+import Header from '../../components/Header/Header.js'
 
 class Results extends Component {
     constructor(props) {
@@ -40,6 +41,8 @@ class Results extends Component {
     render() {
         return (
             <div>
+            <Header/>
+            <div>
                 <h2>
                     Resultados de búsqueda de {this.state.tipo === "movie" ? "películas" : "series"}
                 </h2>
@@ -56,6 +59,7 @@ class Results extends Component {
                         />
                     ))}
                 </section>
+            </div>
             </div>
         );
     }

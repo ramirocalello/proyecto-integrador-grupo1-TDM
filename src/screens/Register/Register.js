@@ -1,5 +1,6 @@
 import { Component } from "react"
 import { Link } from "react-router-dom"
+import Header from '../../components/Header/Header.js'
 
 
 class Register extends Component {
@@ -55,6 +56,8 @@ class Register extends Component {
     render() {
         return (
             <div>
+            <Header/>
+            <div>
                 <h2 className="alert alert-primary">Registrarse</h2>
                 <div className="row justify-content-center">
                     <div className="col-md-6">
@@ -74,6 +77,7 @@ class Register extends Component {
                             <p className="mt-3 text-center">¿Ya tenés cuenta? <Link to="/login">Iniciar sesión</Link></p>
                     </div>
                 </div>
+            </div>
             </div>
         )
 

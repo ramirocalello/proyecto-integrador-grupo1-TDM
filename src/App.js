@@ -17,7 +17,6 @@ import notFound from "./screens/Notfound/Notfound.js"
 function App() {
   return (
     <React.Fragment>
-      <Header/>
       <Switch>
        <Route path="/" exact={true} component={Home} />
        <Route path="/peliculas" component={Peliculas} />

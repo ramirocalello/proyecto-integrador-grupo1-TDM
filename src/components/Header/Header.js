@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import './header.css'
 import Cookies from 'universal-cookie'
 const cookies = new Cookies()
@@ -12,9 +13,9 @@ class Header extends Component {
       display: ''
     }
   }
-  logout = () => {
+  logout = (e) =>{
     cookies.remove('usuario', { path: '/' });
-    window.location.href = "/";
+    this.props.history.push("/");
   }
 
 
@@ -60,7 +61,7 @@ class Header extends Component {
 }
 
 
-export default Header;
+export default withRouter(Header);
 
 
 

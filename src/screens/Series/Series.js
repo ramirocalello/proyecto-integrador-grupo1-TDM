@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Card from "../../components/Card/Card.js"
+import Header from '../../components/Header/Header.js'
 
 class Series extends Component {
     constructor(props) {
@@ -50,6 +51,8 @@ class Series extends Component {
 
         return (
             <div>
+            <Header/>
+            <div>
                 <section className="card-container">
                     {this.state.series === '' ? (
                         <p>Cargando...</p>
@@ -82,6 +85,7 @@ class Series extends Component {
                     )
                     }
                 </section>
+            </div>
             </div>
         )
     }

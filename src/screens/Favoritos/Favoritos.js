@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Card from "../../components/Card/Card.js";
+import Header from '../../components/Header/Header.js'
 
 class Favoritos extends Component {
     constructor(props) {
@@ -29,6 +30,8 @@ class Favoritos extends Component {
     render() {
         return (
             <div>
+            <Header />
+            <div>
                 <h2>Favoritos</h2>
 
                 {this.state.favoritos.length === 0 ? (
@@ -44,6 +47,7 @@ class Favoritos extends Component {
                         />
                     ))
                 )}
+            </div>
             </div>
         )
     }
