@@ -14,7 +14,7 @@ class Header extends Component {
   }
   logout = () => {
     cookies.remove('usuario', { path: '/' });
-    window.location.href = "/login";
+    window.location.href = "/";
   }
 
 
