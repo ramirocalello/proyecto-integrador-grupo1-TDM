@@ -1,6 +1,5 @@
 import { Component } from "react";
-import { Link } from "react-router-dom";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter} from "react-router-dom";
 import './header.css'
 import Cookies from 'universal-cookie'
 const cookies = new Cookies()
@@ -13,9 +12,13 @@ class Header extends Component {
       display: ''
     }
   }
-  logout = (e) =>{
+  
+  logout = () => {
     cookies.remove('usuario', { path: '/' });
-    this.props.history.push("/");
+    this.setState(
+      { cookie: null },
+      () => this.props.history.push("/")
+    );
   }
 
 

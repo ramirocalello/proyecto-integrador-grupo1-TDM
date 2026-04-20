@@ -41,8 +41,7 @@ class Detalle extends Component {
     render() {
         return (
             <div>
-                <Header 
-                history={this.props.history}/>
+                <Header />
                 <Carddetalle
                     img={this.state.data.poster_path}
                     name={this.state.data.original_title}
