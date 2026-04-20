@@ -35,9 +35,14 @@ class Header extends Component {
           </li>
 
           {this.state.cookie ? (
+            <div className="div-header">
             <li className="nav-item">
               <Link to="/favoritos" className="nav-link">Favoritos</Link>
             </li>
+            <li className="nav-item">
+              <button className="nav-link btn btn-link" onClick={this.logout}>Logout</button>
+            </li>
+            </div>
           ) : (
             <div className="div-header">
               <li className="nav-item">
