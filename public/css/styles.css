@@ -116,7 +116,7 @@ nav {
     font-size: 20px;
 }
 
-.register{
+.register {
     display: flex;
     font-weight: 10%;
     font-size: 15px;
@@ -125,7 +125,7 @@ nav {
     margin-left: 20px;
 }
 
-.login{
+.login {
     display: flex;
     font-weight: 10%;
     font-size: 15px;
@@ -146,8 +146,116 @@ footer p {
     margin-left: 25px;
 }
 
-@media(min-width: 765px) {
+/* -------- TABLET -------- */
+@media (max-width: 1024px) {
+    #root {
+        margin: 20px 60px 0px;
+    }
+
+    .single-card-people,
+    .single-card-tv {
+        width: 30%;
+    }
+
+    .single-card-movie {
+        width: 48%;
+    }
+
+    .single-card-playing,
+    .single-card-on-air,
+    .all-movies .single-card-movie {
+        width: 30%;
+    }
+}
+
+@media (max-width: 768px) {
+    #root {
+        margin: 20px 25px 0px;
+    }
+
+    .search-form {
+        grid-template-columns: 1fr;
+        row-gap: 10px;
+    }
+
     nav {
         grid-template-columns: 1fr;
+    }
+
+    .cards {
+        justify-content: space-around;
+        padding: 0.75rem 0.5rem;
+    }
+
+    .single-card-people,
+    .single-card-tv,
+    .single-card-playing,
+    .single-card-on-air,
+    .all-movies .single-card-movie {
+        width: 47%;
+        margin-bottom: 20px;
+    }
+
+    .single-card-movie {
+        width: 47%;
+    }
+
+    .register,
+    .login {
+        margin-left: 10px;
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer p {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    #root {
+        margin: 15px 10px 0px;
+    }
+
+    .stremeo {
+        font-size: 16px;
+    }
+
+    .cards {
+        padding: 0.5rem 0;
+    }
+
+    .single-card-people,
+    .single-card-movie,
+    .single-card-playing,
+    .single-card-tv,
+    .single-card-on-air,
+    .all-movies .single-card-movie {
+        width: 100%;
+        margin: 10px 0 20px;
+    }
+
+    .search-form input,
+    .filter-form input {
+        width: 100%;
+        font-size: 0.95rem;
+    }
+
+    .register,
+    .login {
+        margin-left: 0;
+        margin-top: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav a {
+        font-size: 14px;
     }
 }
